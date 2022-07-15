@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <VideoView
+            android:id="@+id/videoScreen"
+            android:layout_width="266dp"
+            android:layout_height="214dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.365" app:layout_constraintHorizontal_bias="0.496"/>
+    <Spinner
+            android:id="@+id/videosList"
+            android:layout_width="172dp"
+            android:layout_height="43dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:foregroundTint="#009688"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497" app:layout_constraintTop_toBottomOf="@+id/btnPlay"
+            app:layout_constraintBottom_toTopOf="@+id/videoScreen" app:layout_constraintVertical_bias="0.424"/>
+    <Button
+            android:id="@+id/btnSave"
+            android:layout_width="171dp"
+            android:layout_height="52dp"
+            android:backgroundTint="@color/design_default_color_primary"
+            android:text="Guardar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnRecord"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.037"/>
+    <Button
+            android:id="@+id/btnPlay"
+            android:layout_width="161dp"
+            android:layout_height="49dp"
+            android:onClick="playSavedVideo"
+            android:text="Reproducir"
+            android:backgroundTint="@color/design_default_color_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="parent"/>
+    <Button
+            android:id="@+id/btnRecord"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:onClick="videoRecord"
+            android:text="Nuevo Video"
+            android:backgroundTint="@color/design_default_color_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/videoScreen" android:layout_marginTop="28dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
