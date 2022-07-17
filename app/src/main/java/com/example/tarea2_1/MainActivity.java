@@ -23,6 +23,32 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+
+import android.os.Bundle;
+import android.os.Environment;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -70,6 +96,23 @@ public class MainActivity extends AppCompatActivity {
                 while ((len = in.read(buf)) > 0){
                     file.write(buf, 0, len);
                 }
+                FileInputStream objFileIS = in;
+                ByteArrayOutputStream objByteArrayOS = new ByteArrayOutputStream();
+                try
+                {
+                    for (int readNum; (readNum = in.read(buf)) != -1;)
+                    {
+                        objByteArrayOS.write(buf, 0, readNum);
+                        System.out.println("read " + readNum + " bytes,");
+                    }
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+                String videodata = Base64.encodeToString(buf, Base64.DEFAULT);
+                Log.d("VideoData**>  " , videodata);
+                
             }
             catch (IOException e){
                 Toast.makeText(this, "Error: ", Toast.LENGTH_LONG).show();
